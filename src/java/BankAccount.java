@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BankAccount{
-    private String accountName;
+    protected String accountName;
     private String accountNumber;
-    private float balance;
+    protected float balance;
     private List<Transaction> transactionList = new ArrayList<>();
     private boolean isClosed = false;
     private String openDate;
@@ -32,6 +32,7 @@ public class BankAccount{
         float amt = t.getAmt();
         balance += amt;
         t.description();
+        System.out.printf("Current balance: $%.2f\n",balance);
     }
 
     public void withdraw(Transaction t){
@@ -46,5 +47,6 @@ public class BankAccount{
     }
 
     public boolean getStatus(){return isClosed;}
+    public String getName(){return accountName;}
 
 }
